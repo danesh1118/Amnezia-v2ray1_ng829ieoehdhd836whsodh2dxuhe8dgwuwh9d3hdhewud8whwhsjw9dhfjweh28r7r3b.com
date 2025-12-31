@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amnezia VPN - Official Panel 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #00d0ff;
+            --secondary: #7b00ff;
+            --bg: #0a0f1a;
+            --card-bg: rgba(15, 25, 45, 0.75);
+            --text: #e0e7ff;
+            --border: rgba(0, 208, 255, 0.2);
+            --glow: 0 0 15px rgba(0, 208, 255, 0.3);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: linear-gradient(135deg, #0a0f1a, #1a2332);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        .fixed-lang-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 15, 30, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 8px 15px;
+            text-align: center;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .fixed-lang-bar button {
+            background: none;
+            border: 1px solid rgba(0,208,255,0.3);
+            color: var(--text);
+            padding: 4px 9px;
+            margin: 0 6px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 0.85em;
+            transition: 0.3s;
+        }
+
+        .fixed-lang-bar button:hover {
+            background: rgba(0,208,255,0.2);
+        }
+
+        .fixed-lang-bar button.active {
+            background: var(--primary);
+            color: black;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 60px;
+            padding-bottom: 100px;
+        }
+
+        header {
+            background: url('https://thumbs.dreamstime.com/b/futuristic-neon-hallway-background-sci-fi-corridor-blue-purple-lights-modern-technology-abstract-wallpaper-digital-cyberspace-384802906.jpg') center/cover no-repeat;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 30px;
+            box-shadow: var(--glow);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,208,255,0.45), rgba(123,0,255,0.55));
+        }
+
+        header > * {
+            position: relative;
+            z-index: 2;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.2em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        main {
+            padding: 20px 15px;
+        }
+
+        .section-title {
+            font-size: 1.7em;
+            text-align: center;
+            margin: 30px 0 20px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+        }
+
+        .countries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+        }
+
+        .country-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 14px;
+            padding: 18px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: 0.4s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .country-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--glow);
+        }
+
+        .flag {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+        }
+
+        .country-name {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .copy-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 25px;
+            font-size: 0.85em;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.4s ease;
+            box-shadow: 0 2px 8px rgba(0,208,255,0.3);
+        }
+
+        .copy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,208,255,0.4);
+        }
+
+        .downloads {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
+            margin: 40px 0;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            transition: 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            box-shadow: 0 2px 8px rgba(0,208,255,0.3);
+        }
+
+        .download-btn i {
+            font-size: 1.4em;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 18px rgba(0,208,255,0.4);
+        }
+
+        .guide {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 25px;
+            margin: 40px 0;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .guide ol {
+            padding-right: 25px;
+            font-size: 1em;
+        }
+
+        .guide li {
+            margin: 12px 0;
+            padding: 10px;
+            background: rgba(0,208,255,0.05);
+            border-radius: 8px;
+            border-right: 3px solid var(--primary);
+        }
+
+        .floating-btns {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .floating-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6em;
+            box-shadow: 0 4px 15px rgba(0,208,255,0.5);
+            transition: 0.4s ease;
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.15);
+            box-shadow: 0 8px 25px rgba(0,208,255,0.7);
+        }
+
+        .floating-btn.channel {
+            background: linear-gradient(135deg, #ff00c8, #7b00ff);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(10,15,30,0.8);
+            border-top: 1px solid var(--border);
+            font-size: 0.9em;
+            color: #a0a8c0;
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 30px 15px; }
+            header h1 { font-size: 1.9em; }
+            .countries-grid { grid-template-columns: 1fr; }
+            .downloads { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- فقط فارسی و انگلیسی -->
+    <div class="fixed-lang-bar">
+        <button class="active" data-lang="fa">فارسی</button>
+        <button data-lang="en">English</button>
+    </div>
+
+    <div class="floating-btns">
+        <a href="https://t.me/v2ray1_ng" target="_blank" class="floating-btn channel" title="کانال اصلی">
+            <i class="fab fa-telegram-plane"></i>
+        </a>
+        <a href="https://t.me/Leviko_pubg" target="_blank" class="floating-btn" title="پشتیبانی">
+            <i class="fas fa-headset"></i>
+        </a>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1 data-lang="fa">Amnezia VPN - پنل رسمی ۲۰۲۵</h1>
+            <h1 data-lang="en" style="display:none;">Amnezia VPN - Official Panel 2025</h1>
+            <p data-lang="fa">کانفیگ‌های بروز و پرسرعت</p>
+            <p data-lang="en" style="display:none;">Latest High-Speed Configs</p>
+        </header>
+
+        <main>
+            <h2 class="section-title" data-lang="fa">انتخاب سرور</h2>
+            <h2 class="section-title" data-lang="en" style="display:none;">Select Server</h2>
+
+            <div class="countries-grid">
+                <div class="country-card">
+                    <div class="flag">🇺🇸</div>
+                    <div class="country-name" data-lang="fa">ایالات متحده</div>
+                    <div class="country-name" data-lang="en" style="display:none;">USA</div>
+                    <button class="copy-btn" data-lang="fa">کپی کلید</button>
+                    <button class="copy-btn" data-lang="en" style="display:none;">Copy Key</button>
+                    <div class="config-text" style="display:none;">vless://50c2354a-442a-4dd4-b8b5-9b47ae4c5165@www.perplexity.ai:80?type=ws&host=icy-block-acf1.exhume-skirt-smirk.workers.dev&path=%2FHLW3JoJi6BADhOry16&security=none&encryption=none#@V2ray1_ng 🇺🇸</div>
+                </div>
+
+                <div class="country-card">
+                    <div class="flag">🇹🇼</div>
+                    <div class="country-name" data-lang="fa">تایوان</div>
+                    <div class="country-name" data-lang="en" style="display:none;">Taiwan</div>
+                    <button class="copy-btn" data-lang="fa">کپی کلید</button>
+                    <button class="copy-btn" data-lang="en" style="display:none;">Copy Key</button>
+                    <div class="config-text" style="display:none;">vless://5a2c16f9-e365-4080-8d38-6924c3835586@www.perplexity.ai:443?type=ws&security=tls&host=snippets.kkii.eu.org&path=%2F&sni=snippets.kkii.eu.org&encryption=none#@V2ray1_ng 🇹🇼</div>
+                </div>
+
+                <div class="country-card">
+                    <div class="flag">🇺🇦</div>
+                    <div class="country-name" data-lang="fa">اوکراین</div>
+                    <div class="country-name" data-lang="en" style="display:none;">Ukraine</div>
+                    <button class="copy-btn" data-lang="fa">کپی کلید</button>
+                    <button class="copy-btn" data-lang="en" style="display:none;">Copy Key</button>
+                    <div class="config-text" style="display:none;">vless://4a4bc24c-616a-4384-8a8f-b3e197fc1af2@www.perplexity.ai:443?type=ws&security=tls&host=joss.gvpn2.web.id&path=%2FFree-VPN-CF-Geo-Project%2F91.218.212.223%3D443&sni=joss.gvpn2.web.id&fp=randomized&encryption=none#@V2ray1_ng 🇺🇦</div>
+                </div>
+
+                <div class="country-card">
+                    <div class="flag">🇰🇷</div>
+                    <div class="country-name" data-lang="fa">کره جنوبی</div>
+                    <div class="country-name" data-lang="en" style="display:none;">South Korea</div>
+                    <button class="copy-btn" data-lang="fa">کپی کلید</button>
+                    <button class="copy-btn" data-lang="en" style="display:none;">Copy Key</button>
+                    <div class="config-text" style="display:none;">vless://e23d87e4-77cd-430f-8769-9508880368c1@www.perplexity.ai:443?type=ws&security=tls&host=qmsdingyue.1949-10-01.top&path=%2Fzh-tw%2Finfo%2Fproxyip%3Dkr.william.us.ci%3Fed%3D2560&sni=qmsdingyue.1949-10-01.top&encryption=none#@V2ray1_ng 🇰🇷</div>
+                </div>
+
+                <div class="country-card">
+                    <div class="flag">🇭🇰</div>
+                    <div class="country-name" data-lang="fa">هنگ کنگ</div>
+                    <div class="country-name" data-lang="en" style="display:none;">Hong Kong</div>
+                    <button class="copy-btn" data-lang="fa">کپی کلید</button>
+                    <button class="copy-btn" data-lang="en" style="display:none;">Copy Key</button>
+                    <div class="config-text" style="display:none;">vless://13e71ddb-908c-45e0-993c-da482d848c88@www.perplexity.ai:443?type=ws&security=tls&host=seashell.qzz.io&path=%2F156.254.114.120%3A30011&sni=seashell.qzz.io&encryption=none#@V2ray1_ng 🇭🇰</div>
+                </div>
+
+                <div class="country-card">
+                    <div class="flag">🇫🇮</div>
+                    <div class="country-name" data-lang="fa">فنلاند</div>
+                    <div class="country-name" data-lang="en" style="display:none;">Finland</div>
+                    <button class="copy-btn" data-lang="fa">کپی کلید</button>
+                    <button class="copy-btn" data-lang="en" style="display:none;">Copy Key</button>
+                    <div class="config-text" style="display:none;">vless://Parsashonam-Bot-38@www.perplexity.ai:8080?type=ws&security=none&host=Fi.Parsashonam.CfD.&path=%2FParsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam-Parsashonam%3Fed%3D2056&encryption=none#@V2ray1_ng 🇫🇮</div>
+                </div>
+
+                <div class="country-card">
+                    <div class="flag">🇩🇪</div>
+                    <div class="country-name" data-lang="fa">آلمان</div>
+                    <div class="country-name" data-lang="en" style="display:none;">Germany</div>
+                    <button class="copy-btn" data-lang="fa">کپی کلید</button>
+                    <button class="copy-btn" data-lang="en" style="display:none;">Copy Key</button>
+                    <div class="config-text" style="display:none;">vless://2fb8808b-b94c-42ea-9dd2-cd77d2efcc8d@www.perplexity.ai:2096?type=ws&security=tls&host=digikalaa.dpdns.org&path=%2FeyJqdW5rIjoidTZLaDRBMWhpIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eXlwIiwicGFuZWxJUHMiOltdfQ%3D%3D%3Fed%3D2560&sni=DiGIkALaA.dpdns.ORG&fp=chrome&alpn=http%2F1.1&encryption=none#@V2ray1_ng 🇩🇪</div>
+                </div>
+
+                <div class="country-card">
+                    <div class="flag">🇨🇦</div>
+                    <div class="country-name" data-lang="fa">کانادا</div>
+                    <div class="country-name" data-lang="en" style="display:none;">Canada</div>
+                    <button class="copy-btn" data-lang="fa">کپی کلید</button>
+                    <button class="copy-btn" data-lang="en" style="display:none;">Copy Key</button>
+                    <div class="config-text" style="display:none;">vless://c5b129d7-f133-4b34-a9c6-68c9a8f70248@www.perplexity.ai:80?type=ws&security=none&host=EMotioNaL-peRMIsSiONf1bs65u5f4.EcOTOuRISs.Co.uK&path=%2F&encryption=none#@V2ray1_ng 🇨🇦</div>
+                </div>
+
+                <div class="country-card">
+                    <div class="flag">🇩🇪</div>
+                    <div class="country-name" data-lang="fa">آلمان (سرور دوم)</div>
+                    <div class="country-name" data-lang="en" style="display:none;">Germany (Server 2)</div>
+                    <button class="copy-btn" data-lang="fa">کپی کلید</button>
+                    <button class="copy-btn" data-lang="en" style="display:none;">Copy Key</button>
+                    <div class="config-text" style="display:none;">vless://5075cf39-3dd8-4cc9-8cf3-adafae13293a@[2001:41d0:701:1000::72a]:13357?type=grpc&security=none&encryption=none&serviceName=ZEDMODEON-ZEDMODEON-bia-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON&mode=gun&authority=%2Fleviko_pubg#@V2ray1_ng 🇩🇪 (2)</div>
+                </div>
+
+                <div class="country-card">
+                    <div class="flag">🇳🇱</div>
+                    <div class="country-name" data-lang="fa">هلند</div>
+                    <div class="country-name" data-lang="en" style="display:none;">Netherlands</div>
+                    <button class="copy-btn" data-lang="fa">کپی کلید</button>
+                    <button class="copy-btn" data-lang="en" style="display:none;">Copy Key</button>
+                    <div class="config-text" style="display:none;">vless://34705c66-3350-4c6c-ba93-f2cacd3e50ec@www.perplexity.ai:443?type=ws&security=tls&path=%2F45.134.21.8%3A2053&sni=seashell.qzz.io&encryption=none#@V2ray1_ng 🇳🇱</div>
+                </div>
+            </div>
+
+            <h2 class="section-title" data-lang="fa">دانلود اپلیکیشن</h2>
+            <h2 class="section-title" data-lang="en" style="display:none;">Download App</h2>
+
+            <div class="downloads">
+                <a href="https://github.com/amnezia-vpn/amnezia-client/releases/latest" class="download-btn">
+                    <i class="fab fa-windows"></i>
+                    <span data-lang="fa">ویندوز</span><span data-lang="en" style="display:none;">Windows</span>
+                </a>
+                <a href="https://github.com/amnezia-vpn/amnezia-client/releases/latest" class="download-btn">
+                    <i class="fab fa-apple"></i>
+                    <span data-lang="fa">مک</span><span data-lang="en" style="display:none;">macOS</span>
+                </a>
+                <a href="https://apps.apple.com/us/app/amneziavpn/id1600529900" class="download-btn">
+                    <i class="fab fa-app-store-ios"></i>
+                    <span data-lang="fa">iOS</span><span data-lang="en" style="display:none;">iOS</span>
+                </a>
+                <a href="https://github.com/amnezia-vpn/amnezia-client/releases/latest" class="download-btn">
+                    <i class="fab fa-android"></i>
+                    <span data-lang="fa">اندروید</span><span data-lang="en" style="display:none;">Android</span>
+                </a>
+                <a href="https://github.com/amnezia-vpn/amnezia-client/releases/latest" class="download-btn">
+                    <i class="fab fa-linux"></i>
+                    <span data-lang="fa">لینوکس</span><span data-lang="en" style="display:none;">Linux</span>
+                </a>
+            </div>
+
+            <div class="guide">
+                <h2 class="section-title" data-lang="fa">راهنمای اتصال</h2>
+                <h2 class="section-title" data-lang="en" style="display:none;">Connection Guide</h2>
+                <ol>
+                    <li data-lang="fa">اپ را از بالا دانلود و نصب کنید.</li>
+                    <li data-lang="en" style="display:none;">Download and install the app.</li>
+                    <li data-lang="fa">روی + کلیک کنید.</li>
+                    <li data-lang="en" style="display:none;">Click + to add connection.</li>
+                    <li data-lang="fa">کلید سرور را کپی و پیست کنید.</li>
+                    <li data-lang="en" style="display:none;">Copy and paste the server key.</li>
+                    <li data-lang="fa">اتصال برقرار شد!</li>
+                    <li data-lang="en" style="display:none;">Connected!</li>
+                </ol>
+            </div>
+        </main>
+
+        <footer>
+            <p data-lang="fa">&copy; 2025 Amnezia VPN - پنل رسمی</p>
+            <p data-lang="en" style="display:none;">&copy; 2025 Amnezia VPN - Official Panel</p>
+        </footer>
+    </div>
+
+    <script>
+        async function copyToClipboard(text) {
+            try {
+                await navigator.clipboard.writeText(text);
+                alert('کانفیگ با موفقیت کپی شد! حالا در Amnezia پیست کنید 🚀');
+            } catch (err) {
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('کانفیگ کپی شد!');
+            }
+        }
+
+        // اضافه کردن event listener به همه دکمه‌های کپی
+        document.querySelectorAll('.copy-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const configText = btn.parentElement.querySelector('.config-text').innerText;
+                copyToClipboard(configText);
+            });
+        });
+
+        // زبان فقط فارسی و انگلیسی
+        document.querySelectorAll('.fixed-lang-bar button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.dataset.lang;
+
+                document.querySelectorAll('.fixed-lang-bar button').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                document.querySelectorAll('[data-lang]').forEach(el => el.style.display = 'none');
+
+                document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => {
+                    el.style.display = el.tagName === 'BUTTON' || el.tagName === 'SPAN' ? 'inline-flex' : 'block';
+                });
+
+                document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
+                document.documentElement.lang = lang;
+            });
+        });
+    </script>
+</body>
+</html>
