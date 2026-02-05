@@ -168,7 +168,57 @@
             box-shadow: 0 4px 12px rgba(0,208,255,0.4);
         }
 
-        /* وضعیت اشتراک - کارت متمرکز */
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 30px auto 50px auto;
+            max-width: 800px;
+            padding: 0 15px;
+        }
+
+        .special-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            max-width: 340px;
+            padding: 16px 24px;
+            font-size: 1.15em;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .buy-btn {
+            background: linear-gradient(45deg, #ff0066, #ff8800, #ff0066);
+            background-size: 200% 200%;
+            animation: pulse-buy 2.5s infinite;
+        }
+
+        .channel-btn {
+            background: linear-gradient(135deg, #0088cc, #00aaff);
+            box-shadow: 0 0 20px rgba(0, 170, 255, 0.5);
+        }
+
+        .channel-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 180, 255, 0.7);
+        }
+
+        @keyframes pulse-buy {
+            0% { background-position: 0% 50%; box-shadow: 0 0 25px rgba(255, 80, 150, 0.6); }
+            50% { background-position: 100% 50%; box-shadow: 0 0 40px rgba(255, 140, 200, 0.9); }
+            100% { background-position: 0% 50%; box-shadow: 0 0 25px rgba(255, 80, 150, 0.6); }
+        }
+
         .status-card {
             background: var(--card-bg);
             backdrop-filter: blur(12px);
@@ -226,6 +276,11 @@
                 gap: 8px;
                 text-align: center;
                 padding: 16px;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                gap: 16px;
             }
         }
 
@@ -287,36 +342,7 @@
         }
 
         .floating-btns {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            z-index: 999;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .floating-btn {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.6em;
-            box-shadow: 0 4px 15px rgba(0,208,255,0.5);
-            transition: 0.4s ease;
-        }
-
-        .floating-btn:hover {
-            transform: scale(1.15);
-            box-shadow: 0 8px 25px rgba(0,208,255,0.7);
-        }
-
-        .floating-btn.channel {
-            background: linear-gradient(135deg, #ff00c8, #7b00ff);
+            display: none;
         }
 
         footer {
@@ -343,15 +369,6 @@
         <button data-lang="en">English</button>
     </div>
 
-    <div class="floating-btns">
-        <a href="https://t.me/V2ray1_ng" target="_blank" class="floating-btn channel" title="کانال اصلی">
-            <i class="fab fa-telegram-plane"></i>
-        </a>
-        <a href="https://t.me/Leviko_pubg" target="_blank" class="floating-btn" title="پشتیبانی">
-            <i class="fas fa-headset"></i>
-        </a>
-    </div>
-
     <div class="container">
         <header>
             <h1 data-lang="fa">Amnezia VPN - پنل رسمی ۲۰۲۵</h1>
@@ -361,7 +378,15 @@
         </header>
 
         <main>
-            <!-- وضعیت اشتراک - کارت متمرکز -->
+            <div class="action-buttons">
+                <a href="https://t.me/Leviko_pubg_pubg" target="_blank" class="special-btn buy-btn">
+                    <i class="fas fa-crown"></i> خرید کانفیگ اختصاصی
+                </a>
+                <a href="https://t.me/V2ray1_ng" target="_blank" class="special-btn channel-btn">
+                    <i class="fab fa-telegram-plane"></i> عضویت در کانال حرفه‌ای
+                </a>
+            </div>
+
             <div class="status-card">
                 <h2 class="section-title" data-lang="fa">وضعیت اشتراک</h2>
                 <h2 class="section-title" data-lang="en" style="display:none;">Subscription Status</h2>
@@ -402,120 +427,57 @@
             <div class="countries-grid">
 
                 <div class="country-card">
-                    <div class="flag">🇦🇱</div>
-                    <div class="country-name" data-lang="fa">آلبانی VIP</div>
-                    <div class="country-name" data-lang="en" style="display:none;">Albania VIP</div>
+                    <div class="flag">🇵🇱</div>
+                    <div class="country-name" data-lang="fa">لهستان</div>
+                    <div class="country-name" data-lang="en" style="display:none;">Poland</div>
                     <button class="copy-btn" data-lang="fa">کپی کلید</button>
                     <button class="copy-btn" data-lang="en" style="display:none;">Copy Key</button>
-                    <div class="config-text" style="display:none;">vless://239ed41c-4af6-49ba-8156-ff2310ea5d78@www.perplexity.ai:8080?type=ws&security=none&host=pn2w1nweb.sigmachemicals.ir&path=%2F14351%2FNextlife&encryption=auto#@Albania VIP SERVER</div>
+                    <div class="config-text" style="display:none;">vless://71031aa1-067e-425e-97f5-37875f838a10@144.31.0.58:443?security=reality&encryption=none&pbk=HpsfKx7yMXjK6X2n5J8Z58MKBdq_od6trtPoWkcoZlc&headerType=none&fp=chrome&type=tcp&sni=google.com&sid=d1#Poland%20%F0%9F%87%B5%F0%9F%87%B1</div>
+                </div>
+
+                <div class="country-card">
+                    <div class="flag">🇳🇱</div>
+                    <div class="country-name" data-lang="fa">هلند</div>
+                    <div class="country-name" data-lang="en" style="display:none;">Netherlands</div>
+                    <button class="copy-btn" data-lang="fa">کپی کلید</button>
+                    <button class="copy-btn" data-lang="en" style="display:none;">Copy Key</button>
+                    <div class="config-text" style="display:none;">vless://a44e0875-210f-4941-9062-89b6361a14c6@185.21.14.122:443?security=reality&encryption=none&pbk=i5a8i2AWUSMZ-rYA6hGBRCBBoe7W5ah33SCdF5JkMk4&headerType=none&type=tcp&flow=xtls-rprx-vision&sni=apple.com&sid=8bcfe256cf216fd8#Netherlands%202%20%F0%9F%87%B3%F0%9F%87%B1</div>
+                </div>
+
+                <div class="country-card">
+                    <div class="flag">🇳🇱</div>
+                    <div class="country-name" data-lang="fa">هلند ۲</div>
+                    <div class="country-name" data-lang="en" style="display:none;">Netherlands 2</div>
+                    <button class="copy-btn" data-lang="fa">کپی کلید</button>
+                    <button class="copy-btn" data-lang="en" style="display:none;">Copy Key</button>
+                    <div class="config-text" style="display:none;">vless://a44e0875-210f-4941-9062-89b6361a14c6@91.84.112.93:443?security=reality&encryption=none&pbk=i5a8i2AWUSMZ-rYA6hGBRCBBoe7W5ah33SCdF5JkMk4&headerType=none&fp=chrome&type=tcp&flow=xtls-rprx-vision&sni=apple.com&sid=8bcfe256cf216fd8#Netherlands%20%F0%9F%87%B3%F0%9F%87%B1</div>
+                </div>
+
+                <div class="country-card">
+                    <div class="flag">🇫🇷</div>
+                    <div class="country-name" data-lang="fa">فرانسه</div>
+                    <div class="country-name" data-lang="en" style="display:none;">France</div>
+                    <button class="copy-btn" data-lang="fa">کپی کلید</button>
+                    <button class="copy-btn" data-lang="en" style="display:none;">Copy Key</button>
+                    <div class="config-text" style="display:none;">vless://68c89f56-3a15-46f2-9901-8c00a2546b97@172.64.144.74:443?path=%2FTel-%40V2rayAlpha&security=tls&encryption=none&host=rukawa.pages.dev&type=ws&sni=rukawa.pages.dev#France%20%F0%9F%87%AB%F0%9F%87%B7</div>
                 </div>
 
                 <div class="country-card">
                     <div class="flag">🇨🇦</div>
-                    <div class="country-name" data-lang="fa">کانادا VIP</div>
-                    <div class="country-name" data-lang="en" style="display:none;">Canada VIP</div>
+                    <div class="country-name" data-lang="fa">کانادا</div>
+                    <div class="country-name" data-lang="en" style="display:none;">Canada</div>
                     <button class="copy-btn" data-lang="fa">کپی کلید</button>
                     <button class="copy-btn" data-lang="en" style="display:none;">Copy Key</button>
-                    <div class="config-text" style="display:none;">vless://c5b129d7-f133-4b34-a9c6-68c9a8f70248@www.perplexity.ai:80?type=ws&security=none&host=EMotioNaL-peRMIsSiONf1bs65u5f4.EcOTOuRISs.Co.uK&path=%2F&encryption=none#@Canada VIP SERVER</div>
+                    <div class="config-text" style="display:none;">vless://6abc2840-25fd-4dd7-b1aa-0892fe98f2d9@172.66.128.70:80?path=%2F%3Fed&security=none&encryption=none&host=MySterIOUS-chECk94Bl5oXQ6C.eCoTOUriSs.cO.uK.&type=ws#Canada%20%F0%9F%87%A8%F0%9F%87%A6</div>
                 </div>
 
                 <div class="country-card">
-                    <div class="flag">🇩🇪</div>
-                    <div class="country-name" data-lang="fa">آلمان VIP</div>
-                    <div class="country-name" data-lang="en" style="display:none;">Germany VIP</div>
+                    <div class="flag">🇨🇾</div>
+                    <div class="country-name" data-lang="fa">قبرس</div>
+                    <div class="country-name" data-lang="en" style="display:none;">Cyprus</div>
                     <button class="copy-btn" data-lang="fa">کپی کلید</button>
                     <button class="copy-btn" data-lang="en" style="display:none;">Copy Key</button>
-                    <div class="config-text" style="display:none;">vless://2fb8808b-b94c-42ea-9dd2-cd77d2efcc8d@www.perplexity.ai:2096?type=ws&security=tls&host=digikalaa.dpdns.org&path=%2FeyJqdW5rIjoidDZLaDRBMWhpIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560&sni=DiGIkALaA.dpdns.ORG&fp=chrome&alpn=http/1.1&encryption=none#@Germany VIP SERVER</div>
-                </div>
-
-                <div class="country-card">
-                    <div class="flag">🇫🇮</div>
-                    <div class="country-name" data-lang="fa">فنلاند VIP</div>
-                    <div class="country-name" data-lang="en" style="display:none;">Finland VIP</div>
-                    <button class="copy-btn" data-lang="fa">کپی کلید</button>
-                    <button class="copy-btn" data-lang="en" style="display:none;">Copy Key</button>
-                    <div class="config-text" style="display:none;">vless://98bdfa8a-bcc7-4dc9-b6fd-a5e5b3076435@www.perplexity.ai:443?type=ws&security=tls&host=joss.gvpn2.web.id&path=%2FFree-VPN-CF-Geo-Project%2F194.180.189.36%3D443&sni=joss.gvpn2.web.id&fp=randomized&encryption=none#@Finland VIP SERVER</div>
-                </div>
-
-                <div class="country-card">
-                    <div class="flag">🇬🇧</div>
-                    <div class="country-name" data-lang="fa">انگلستان VIP</div>
-                    <div class="country-name" data-lang="en" style="display:none;">United Kingdom VIP</div>
-                    <button class="copy-btn" data-lang="fa">کپی کلید</button>
-                    <button class="copy-btn" data-lang="en" style="display:none;">Copy Key</button>
-                    <div class="config-text" style="display:none;">vless://9ac02124-e3f2-4a80-8ac8-d06612ebaceb@www.perplexity.ai:443?type=ws&security=tls&host=purplelily.qzz.io&path=%2F57.128.183.35%3A443&sni=purplelily.qzz.io&encryption=none#@United Kingdom VIP SERVER</div>
-                </div>
-
-                <div class="country-card">
-                    <div class="flag">🇮🇩</div>
-                    <div class="country-name" data-lang="fa">اندونزی VIP</div>
-                    <div class="country-name" data-lang="en" style="display:none;">Indonesia VIP</div>
-                    <button class="copy-btn" data-lang="fa">کپی کلید</button>
-                    <button class="copy-btn" data-lang="en" style="display:none;">Copy Key</button>
-                    <div class="config-text" style="display:none;">vless://9be5679d-cd82-4ace-9fcf-bed31e21fadf@www.perplexity.ai:443?type=ws&security=tls&host=tronblue.qzz.io&path=%2F43.218.77.16%3D1443&sni=tronblue.qzz.io&encryption=none#@Indonesia VIP SERVER</div>
-                </div>
-
-                <div class="country-card">
-                    <div class="flag">🇭🇰</div>
-                    <div class="country-name" data-lang="fa">هنگ‌کنگ VIP</div>
-                    <div class="country-name" data-lang="en" style="display:none;">Hong Kong VIP</div>
-                    <button class="copy-btn" data-lang="fa">کپی کلید</button>
-                    <button class="copy-btn" data-lang="en" style="display:none;">Copy Key</button>
-                    <div class="config-text" style="display:none;">vless://e1315f5e-9df0-4322-97ca-4758ef8fbb55@www.perplexity.ai:2096?type=ws&security=tls&host=hk.shuiwudengli.dpdns.org&path=%2F&sni=hk.shuiwudengli.dpdns.org&encryption=none#@Hong Kong VIP SERVER</div>
-                </div>
-
-                <div class="country-card">
-                    <div class="flag">🇰🇷</div>
-                    <div class="country-name" data-lang="fa">کره جنوبی VIP</div>
-                    <div class="country-name" data-lang="en" style="display:none;">South Korea VIP</div>
-                    <button class="copy-btn" data-lang="fa">کپی کلید</button>
-                    <button class="copy-btn" data-lang="en" style="display:none;">Copy Key</button>
-                    <div class="config-text" style="display:none;">vless://7dd16ab1-2a36-4b32-86fd-eb49fb039752@www.perplexity.ai:2087?type=ws&security=tls&host=lv4.789900.xyz&path=%2F7dd16ab1-2a36-4b32-86fd-eb49fb039752-vm&sni=lv4.789900.xyz&encryption=auto#@South Korea VIP SERVER</div>
-                </div>
-
-                <div class="country-card">
-                    <div class="flag">🇸🇬</div>
-                    <div class="country-name" data-lang="fa">سنگاپور VIP</div>
-                    <div class="country-name" data-lang="en" style="display:none;">Singapore VIP</div>
-                    <button class="copy-btn" data-lang="fa">کپی کلید</button>
-                    <button class="copy-btn" data-lang="en" style="display:none;">Copy Key</button>
-                    <div class="config-text" style="display:none;">vless://1a0d2a22-7304-462c-9bab-bf2ad1cd24c2@www.perplexity.ai:443?type=ws&security=tls&host=sp1.hhhhh.eu.org&path=%2F%3Fproxyip%3Dproxyip.sg.cmliussss.net&sni=sp1.hhhhh.eu.org&fp=random&encryption=none#@Singapore VIP SERVER</div>
-                </div>
-
-                <div class="country-card">
-                    <div class="flag">🇺🇦</div>
-                    <div class="country-name" data-lang="fa">اوکراین VIP</div>
-                    <div class="country-name" data-lang="en" style="display:none;">Ukraine VIP</div>
-                    <button class="copy-btn" data-lang="fa">کپی کلید</button>
-                    <button class="copy-btn" data-lang="en" style="display:none;">Copy Key</button>
-                    <div class="config-text" style="display:none;">vless://4a4bc24c-616a-4384-8a8f-b3e197fc1af2@www.perplexity.ai:443?type=ws&security=tls&host=joss.gvpn2.web.id&path=%2FFree-VPN-CF-Geo-Project%2F91.218.212.223%3D443&sni=joss.gvpn2.web.id&fp=randomized&encryption=none#@Ukraine VIP SERVER</div>
-                </div>
-
-                <div class="country-card">
-                    <div class="flag">🇺🇸</div>
-                    <div class="country-name" data-lang="fa">ایالات متحده VIP</div>
-                    <div class="country-name" data-lang="en" style="display:none;">United States VIP</div>
-                    <button class="copy-btn" data-lang="fa">کپی کلید</button>
-                    <button class="copy-btn" data-lang="en" style="display:none;">Copy Key</button>
-                    <div class="config-text" style="display:none;">vless://06a03af9-a629-4047-9418-4bb226551346@www.perplexity.ai:443?type=ws&security=tls&host=www.pjw5.top&path=%2F%3Fed%3D2560&sni=www.pjw5.top&fp=random&encryption=none#@United States VIP SERVER</div>
-                </div>
-
-                <div class="country-card">
-                    <div class="flag">🇺🇸</div>
-                    <div class="country-name" data-lang="fa">ایالات متحده VIP (۲)</div>
-                    <div class="country-name" data-lang="en" style="display:none;">United States VIP (2)</div>
-                    <button class="copy-btn" data-lang="fa">کپی کلید</button>
-                    <button class="copy-btn" data-lang="en" style="display:none;">Copy Key</button>
-                    <div class="config-text" style="display:none;">vless://ef8bff83-6d54-4e62-9b58-a2eec3f0d6a0@www.perplexity.ai:80?type=ws&security=none&host=websocket.network.www.speedtest.net.flutter.dev.russia.pyt.digitalcity5.xyz.skylinkserver.site.vegaskala.com.&path=%2F%40Shh_Proxy----%40Shh_Proxy----%40Shh_Proxy----%40Shh_Proxy----%40Shh_Proxy----%40Shh_Proxy----%40Shh_Proxy----%40Shh_Proxy----%40Shh_Proxy----%40Shh_Proxy----%40Shh_Proxy----%40Shh_Proxy&encryption=none#@United States VIP SERVER (2)</div>
-                </div>
-
-                <div class="country-card">
-                    <div class="flag">🇩🇪</div>
-                    <div class="country-name" data-lang="fa">آلمان VIP (۲)</div>
-                    <div class="country-name" data-lang="en" style="display:none;">Germany VIP (2)</div>
-                    <button class="copy-btn" data-lang="fa">کپی کلید</button>
-                    <button class="copy-btn" data-lang="en" style="display:none;">Copy Key</button>
-                    <div class="config-text" style="display:none;">vless://b9b8cf4c-29a3-4288-9c6c-8811dc37beec@www.perplexity.ai:2087?type=ws&security=tls&host=Xlz767V2Ray.PAGEs.DEv&path=%2F&sni=Xlz767V2Ray.PAGEs.DEv&fp=chrome&encryption=none#@Germany VIP SERVER (2)</div>
+                    <div class="config-text" style="display:none;">vless://8dc7722c-2767-4eea-a28b-2f8daacc07e3@45.82.251.208:8880?mode=gun&security=none&encryption=none&fp=chrome&type=grpc#Cybrus%20%F0%9F%87%A8%F0%9F%87%BE</div>
                 </div>
 
             </div>
@@ -524,25 +486,34 @@
             <h2 class="section-title" data-lang="en" style="display:none;">Download App</h2>
 
             <div class="downloads">
-                <a href="https://github.com/amnezia-vpn/amnezia-client/releases/latest" class="download-btn">
+                <a href="https://github.com/amnezia-vpn/amnezia-client/releases/latest/download/AmneziaVPN_Win_x64_Setup.exe" class="download-btn" target="_blank">
                     <i class="fab fa-windows"></i>
-                    <span data-lang="fa">ویندوز</span><span data-lang="en" style="display:none;">Windows</span>
+                    <span data-lang="fa">ویندوز</span>
+                    <span data-lang="en" style="display:none;">Windows</span>
                 </a>
-                <a href="https://github.com/amnezia-vpn/amnezia-client/releases/latest" class="download-btn">
-                    <i class="fab fa-apple"></i>
-                    <span data-lang="fa">مک</span><span data-lang="en" style="display:none;">macOS</span>
+
+                <a href="https://play.google.com/store/apps/details?id=org.amnezia.vpn" class="download-btn" target="_blank">
+                    <i class="fab fa-google-play"></i>
+                    <span data-lang="fa">اندروید (گوگل پلی)</span>
+                    <span data-lang="en" style="display:none;">Android (Google Play)</span>
                 </a>
-                <a href="https://apps.apple.com/us/app/amneziavpn/id1600529900" class="download-btn">
+
+                <a href="https://apps.apple.com/app/amneziavpn/id1600529900" class="download-btn" target="_blank">
                     <i class="fab fa-app-store-ios"></i>
-                    <span data-lang="fa">iOS</span><span data-lang="en" style="display:none;">iOS</span>
+                    <span data-lang="fa">iOS</span>
+                    <span data-lang="en" style="display:none;">iOS</span>
                 </a>
-                <a href="https://github.com/amnezia-vpn/amnezia-client/releases/latest" class="download-btn">
-                    <i class="fab fa-android"></i>
-                    <span data-lang="fa">اندروید</span><span data-lang="en" style="display:none;">Android</span>
+
+                <a href="https://github.com/amnezia-vpn/amnezia-client/releases/latest/download/AmneziaVPN_Mac.dmg" class="download-btn" target="_blank">
+                    <i class="fab fa-apple"></i>
+                    <span data-lang="fa">مک</span>
+                    <span data-lang="en" style="display:none;">macOS</span>
                 </a>
-                <a href="https://github.com/amnezia-vpn/amnezia-client/releases/latest" class="download-btn">
+
+                <a href="https://github.com/amnezia-vpn/amnezia-client/releases/latest" class="download-btn" target="_blank">
                     <i class="fab fa-linux"></i>
-                    <span data-lang="fa">لینوکس</span><span data-lang="en" style="display:none;">Linux</span>
+                    <span data-lang="fa">لینوکس</span>
+                    <span data-lang="en" style="display:none;">Linux</span>
                 </a>
             </div>
 
@@ -609,7 +580,7 @@
             });
         });
 
-        const START_TIME = new Date('2026-01-01T00:00:00Z').getTime();
+        const START_TIME = new Date('2026-02-05T11:00:00Z').getTime();
         const TOTAL_DURATION_MS = 29 * 24 * 60 * 60 * 1000;
         const TOTAL_VOLUME_GB = 50000;
 
